@@ -1,5 +1,20 @@
 # VALOFFI API CLIENT
 
+<p align="left">
+  <a href="https://github.com/tanishqmanuja/valoffi-api-client">
+      <img src="https://img.shields.io/github/actions/workflow/status/tanishqmanuja/valoffi-api-client/ci.yaml?style=flat&logo=github&label=CI" alt="CI Status" height="18">
+  </a>
+  <a href="https://www.npmjs.com/package/@tqman/valoffi-api-client">
+    <img src="https://img.shields.io/npm/dm/@tqman/valoffi-api-client.svg?style=flat&label=Downloads" alt="downloads" height="18">
+  </a>
+  <a href="https://www.npmjs.com/package/@tqman/valoffi-api-client">
+    <img src="https://img.shields.io/npm/v/@tqman/valoffi-api-client.svg?style=flat&label=NPM" alt="npm version" height="18">
+  </a>
+  <a href="https://github.com/tanishqmanuja/valoffi-api-client">
+    <img src="https://img.shields.io/npm/l/@tqman/valoffi-api-client.svg?style=flat&label=License" alt="MIT license" height="18">
+  </a>
+</p>
+
 It is a type safe implementation of an api client for [VALORANT-API.com](https://valorant-api.com/).\
 VALOFFI is VALORANT + Officer (alias for the developer who made valroant-api.com)
 
