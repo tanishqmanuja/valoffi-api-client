@@ -1,6 +1,6 @@
 {
   "name": "@tqman/valoffi-api-client",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Type-safe API client for Valorant-API.com",
   "files": [
