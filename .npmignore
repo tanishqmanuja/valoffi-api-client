@@ -1,0 +1,13 @@
+.github
+.vscode
+.turbo
+.changeset
+assets
+docs
+src
+pnpm-lock.yaml
+tsconfig.json
+tsup.config.ts
+.prettierrc.cjs
+.prettierignore
+.env

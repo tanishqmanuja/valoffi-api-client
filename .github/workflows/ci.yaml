@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "docs/**"
+      - "assets/**"
+      - "README.md"
+      - ".github/README.md"
+  pull_request:
+    branches:
+      - "**"
+    paths-ignore:
+      - "docs/**"
+      - "assets/**"
+      - "README.md"
+      - ".github/README.md"
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Repository
+        uses: ./.github/actions/setup
+
+      - name: Lint
+        run: pnpm turbo lint

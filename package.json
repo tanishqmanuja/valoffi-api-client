@@ -1,0 +1,70 @@
+{
+  "name": "@tqman/valoffi-api-client",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Type-safe API client for Valorant-API.com",
+  "files": [
+    "dist/*",
+    "package.json"
+  ],
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.js",
+      "require": "./dist/types.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsup",
+    "release": "changeset publish",
+    "type:check": "tsc --noEmit",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "lint": "pnpm type:check && pnpm format:check",
+    "seed": "tsx ./scripts/offi.generator.ts"
+  },
+  "keywords": [
+    "valorant",
+    "api",
+    "client",
+    "riot",
+    "valorant-api.com",
+    "officer"
+  ],
+  "author": "tanishqmanuja",
+  "license": "MIT",
+  "homepage": "https://github.com/tanishqmanuja/valoffi-api-client#readme",
+  "repository": "github:tanishqmanuja/valoffi-api-client",
+  "packageManager": "pnpm@8.6.7",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.2",
+    "@tqman/prettier-config": "^1.0.0",
+    "@tqman/tsconfig": "^1.0.0",
+    "@types/node": "^20.4.2",
+    "change-case": "^4.1.2",
+    "json-ts": "^1.6.4",
+    "prettier": "^3.0.0",
+    "ts-to-zod": "^3.1.3",
+    "tsup": "^7.1.0",
+    "tsx": "^3.12.7",
+    "turbo": "^1.10.7",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "zod": "^3.21.4"
+  }
+}

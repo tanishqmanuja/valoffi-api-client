@@ -1,0 +1,40 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+    branches:
+      - main
+
+  push:
+    branches:
+      - main
+    paths:
+      - package.json
+      - src/**
+
+jobs:
+  changesets:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Repository
+        uses: ./.github/actions/setup
+
+      - name: Create Release Pull Request or Publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm turbo release
+          title: "chore: bump version"
+          commit: "chore: bump version"
+          createGithubReleases: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
