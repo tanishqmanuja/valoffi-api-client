@@ -8,6 +8,7 @@ import {
   tOffiEndpointsBarrel,
   tOffiEndpointsWrapper,
 } from "./offi.template";
+import axios from "axios";
 
 const ENDPOINTS_DIR = "src/endpoints";
 await mkdir(ENDPOINTS_DIR, { recursive: true });
@@ -93,6 +94,8 @@ await writeFile(
   });
 console.log(" ✓ Done!\n");
 
+await writeFile(".VAPI_VERSION", await getVAPIVersion());
+
 console.log("=> Formatting files...");
 await execa(`prettier --write ${ENDPOINTS_DIR}/*.ts`);
 console.log(" ✓ Done!\n");
@@ -112,4 +115,11 @@ export function guessEndpointName(url: string) {
 
 export function getFilePath(dir: string, url: string) {
   return join(dir, `${paramCase(guessEndpointName(url))}.ts`);
+}
+
+export async function getVAPIVersion(): Promise<string> {
+  return axios
+    .get("https://valorant-api.com/v1/version")
+    .then(res => res.data.data)
+    .then(data => data.version);
 }
