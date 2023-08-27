@@ -16,7 +16,7 @@
 </p>
 
 It is a type safe implementation of an api client for [VALORANT-API.com](https://valorant-api.com/).\
-VALOFFI is VALORANT + Officer (alias for the developer who made valroant-api.com)
+VALOFFI is VALORANT + Officer (alias for the developer who made valorant-api.com)
 
 ## Installation
 
@@ -39,9 +39,12 @@ yarn add @tqman/valoffi-api-client@latest
 ```ts
 import { OffiApiClient } from "@tqman/valoffi-api-client";
 
-const api = new OffiApiClient({
-  parseResponseData: true,
-});
+const api = new OffiApiClient();
+
+// or with parsing
+// const api = new OffiApiClient({
+//   parseResponseData: true,
+// });
 
 const {
   data: { riotClientVersion },
