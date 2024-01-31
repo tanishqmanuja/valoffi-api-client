@@ -5,6 +5,7 @@ import { getOffiApiAxiosClient } from "./helpers";
 import { type Endpoints, endpoints } from "./endpoints";
 
 export const offiApiClientOptionsSchema = z.object({
+  language: z.string().default("en-US"),
   parseResponseData: z.boolean().default(false),
 });
 
@@ -33,6 +34,7 @@ export class OffiApiClient {
     const { url, schema } = endpoints[endpoint];
     const shouldParseResponse =
       options?.parseResponseData ?? this.#options.parseResponseData;
+    const language = options?.language ?? this.#options.language;
 
     return this.#axiosInstance.get<D>(url, {
       ...(shouldParseResponse
@@ -43,6 +45,7 @@ export class OffiApiClient {
             ],
           }
         : {}),
+      params: { language },
     });
   }
 
